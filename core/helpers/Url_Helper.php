@@ -11,9 +11,9 @@
 		$action = $uri_array[1];
 
 		if ($module && $action) {
-			return "/?module={$module}&action={$action}";
+			return "/ProjectSEM2/?module={$module}&action={$action}";
 		}
-		return '/';
+		return '/ProjectSEM2';
 	}
 
 	/*

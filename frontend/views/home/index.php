@@ -6,13 +6,13 @@
     </ol>
     <div class="carousel-inner">
         <div class="carousel-item">
-            <img src="<? echo IMG_URL . 'banner-wedding.jpg' ?>" class="d-block w-100" alt="...">
+            <img src="<? echo IMG_URL . 'images/banner-wedding.jpg' ?>" class="d-block w-100" alt="..." width="100%" height="auto">
         </div>
         <div class="carousel-item">
-            <img src="<? echo IMG_URL . 'banner-travel.jpg' ?>" class="d-block w-100" alt="...">
+            <img src="<? echo IMG_URL . 'images/banner-travel.jpg' ?>" class="d-block w-100" alt="..." width="100%" height="auto">
         </div>
         <div class="carousel-item active">
-            <img src="<? echo IMG_URL . 'banner-banquest.jpg' ?>" class="d-block w-100" alt="...">
+            <img src="<? echo IMG_URL . 'images/banner-banquest.jpg' ?>" class="d-block w-100" alt="..." width="100%" height="auto">
         </div>
     </div>
     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -29,16 +29,17 @@
         <div class="navbar navbar-dark bg-dark mt-5">
             <span class="text-light">VEST</span>
         </div>
-        <div class="row mt-3 mb-5">
+        <div class="row mt-3 mb-3">
             <?php foreach ($products as $product) : ?>
-                <div class="col-3">
+                <div class="col-sm">
                     <div class="card">
                         <p><img class="card-img-top" src="<?php echo IMG_URL . $product['image'] ?>" alt="" srcset=""></p>
                         <div class="card-body">
-                            <h4 class="card-title"><a href="<?php echo base_url("product/show&id={$product['id']}") ?>"><?php echo $product['pro_name'] ?></a></h4>
-                            <p class="card-text"><?php echo $product['price'] ?> VND</p>
+                            <h4 class="card-title text-center"><a href="<?php echo base_url("product/show&id={$product['id']}") ?>"><?php echo $product['name'] ?></a></h4>
+                            <p class="card-text text-center"><?php echo $product['price'] ?> VND</p>
                         </div>
                     </div>
+                    <br>
                 </div>
             <?php endforeach; ?>
         </div>

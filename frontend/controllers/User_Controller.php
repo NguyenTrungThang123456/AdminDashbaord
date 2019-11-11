@@ -2,6 +2,11 @@
 
 class User_Controller extends Base_Controller {
 	
+	
+	function index(){
+		$this->view->load('auth/auth_layout');
+		$this->layout->set(null);
+	}
 	// view form
 	function add() {
 		$this->view->load('user/create');

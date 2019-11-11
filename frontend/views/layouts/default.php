@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,26 +11,34 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script type="text/javascript">
-        var API_SUCCESS = <?php  echo API_SUCCESS ?>;
+        var API_SUCCESS = <?php echo API_SUCCESS ?>;
         var API_ERROR = <?php echo API_ERROR ?>;
     </script>
     <link rel="stylesheet" href="<?php echo CSS_URL . 'home.css' ?>">
-    <link rel="shortcut icon" href="<?php echo IMG_URL . 'Logo-VTCS.png' ?>" type="image/jpg">
+    <link rel="shortcut icon" href="<?php echo IMG_URL . 'images/Logo-VTCS.png' ?>" type="image/jpg">
     <title>VTC Store</title>
 </head>
 
 <body>
     <div class="sticky-top bg-light">
         <header class=" container navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="<?php echo base_url("home/index") ?>"><img src="<?php echo IMG_URL . 'Logo-VTCS.png' ?>" alt="" width="50px" height="auto"></a>
+            <a class="navbar-brand pl-3" href="<?php echo base_url("home/index") ?>"><img src="<?php echo IMG_URL . 'images/Logo-VTCS.png' ?>" alt="" width="50px" height="auto"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="collapse navbar-collapse pr-5" id="navbarNavAltMarkup">
                 <div class="navbar-nav ml-auto">
-                    <a class="nav-item nav-link mr-3 active" href="#">Liên hệ<span class="sr-only">(current)</span></a>
-                    <a class="nav-item nav-link mr-3 active" href="#"><img class="mb-2" src="<?php echo IMG_URL . 'user.png' ?>" alt="" width="16px" height="auto"></a>
-                    <a class="nav-item nav-link active" href="#"><img class="mb-1" src="<?php echo IMG_URL . 'cart.png' ?>" alt="" width="16px" height="auto"></a>
+                    <a id="contact" class="nav-item nav-link mr-3 active" href="#">Liên hệ<span class="sr-only">(current)</span></a>
+                    <form class="form-inline" style="display: inline;">
+                        <input type="text" class="form-control" placeholder="Nhập Email..." aria-label="Recipient's username" aria-describedby="basic-addon2">
+                        <button class="btn btn-outline-dark mr-1" type="button">Tìm kiếm</button>
+                    </form>
+                    <?php if (!$_SESSION['name']) : ?>
+                        <a id="login" class="nav-item nav-link ml-2 active" href="<?php echo base_url('home/login') ?>"><img class="mb-1" src="<?php echo IMG_URL . 'images/user.png' ?>" alt="" height="auto"></a>
+                    <?php else : ?>
+                        <a id="login" class="nav-item nav-link  active" href="<?php echo base_url('home/handle_logout') ?>"><?php echo $_SESSION['name'] ?><small>(đăng xuất)</small></a>
+                    <?php endif; ?>
+                    <a id="cart" class="nav-item nav-link active" href="#"><img src="<?php echo IMG_URL . 'images/cart.png' ?>" alt="" height="auto"></a>
                 </div>
             </div>
         </header>
@@ -77,95 +86,99 @@
     <article>
         <?php echo $content ?>
     </article>
+
     <div class="border-top"></div>
+
     <footer class="container">
         <div class="row mx-auto">
-            <div class="col-3">
-                <div class="card border-0">
-                    <div class="card-body">
-                        <p><a href="<?php echo base_url("home/index") ?>"><img src="<?php echo IMG_URL . 'Logo-VTCS.png' ?>" alt="" width="100px" height="auto"></a></p>
-                        <p><img src="<?php echo IMG_URL . 'call.png' ?>" alt="" width="12px" height="auto" style="padding-bottom: 3px;"><span>19008198</span></p>
-                        <p><img src="<?php echo IMG_URL . 'email.png' ?>" alt="" width="12px" height="auto"><span>namdeptrai@vodoi.com</span></p>
-                    </div>
+            <!-- <div > -->
+            <div class="card border-0">
+                <div class="card-body">
+                    <p class="text-center"><a href="<?php echo base_url("home/index") ?>"><img src="<?php echo IMG_URL . 'images/Logo-VTCS.png' ?>" alt="" width="100px" height="auto"></a></p>
+                    <p><img src="<?php echo IMG_URL . 'images/call.png' ?>" alt="" width="12px" height="auto" style="padding-bottom: 3px;"><span>19008198</span></p>
+                    <p><img src="<?php echo IMG_URL . 'images/email.png' ?>" alt="" width="12px" height="auto"><span>namdeptrai@vodoi.com</span></p>
                 </div>
             </div>
-            <div class="col-6">
+            <!-- </div> -->
+            <div class="col-sm">
                 <div class="row mx-auto">
-                    <div class="card border-0">
+                    <div class="col-sm border-0 m-0">
                         <div class="card-body">
-                            <h5 class="card-title m-0"><b>Dịch vụ khách hàng</b></h5>
+                            <h5 class="card-title "><b>Dịch vụ khách hàng</b></h5>
                             <a href="#">
-                                <p class="card-text text-dark m-0">News</p>
+                                <p class="card-text text-dark">News</p>
                             </a>
                             <a href="#">
-                                <p class="card-text text-dark m-0">Khuyến mại</p>
+                                <p class="card-text text-dark">Khuyến mại</p>
                             </a>
                             <a href="#">
-                                <p class="card-text text-dark m-0">VTCS và báo chí</p>
+                                <p class="card-text text-dark">VTCS và báo chí</p>
                             </a>
                             <a href="#">
-                                <p class="card-text text-dark m-0">Ưu đãi đối tác VTCS</p>
+                                <p class="card-text text-dark">Ưu đãi đối tác VTCS</p>
                             </a>
                             <a href="#">
-                                <p class="card-text text-dark m-0">Sao Việt và Khách Hàng</p>
+                                <p class="card-text text-dark">Sao Việt và Khách Hàng</p>
                             </a>
                             <a href="#">
-                                <p class="card-text text-dark m-0">VTCS Videos</p>
+                                <p class="card-text text-dark">VTCS Videos</p>
                             </a>
                         </div>
                     </div>
-                    <div class="card border-0">
+                    <div class="col-sm border-0 m-0">
                         <div class="card-body">
-                            <h5 class="card-title m-0"><b>Nhóm sản phẩm</b></h5>
+                            <h5 class="card-title "><b>Nhóm sản phẩm</b></h5>
                             <a href="#">
-                                <p class="card-text text-dark m-0">VEST</p>
+                                <p class="card-text text-dark">VEST</p>
                             </a>
                             <a href="#">
-                                <p class="card-text text-dark m-0">PHỤ KIỆN</p>
+                                <p class="card-text text-dark">PHỤ KIỆN</p>
                             </a>
                             <a href="#">
-                                <p class=" card-text text-dark m-0">SƠ MI</p>
+                                <p class=" card-text text-dark">SƠ MI</p>
                             </a>
                             <a href="#">
-                                <p class="card-text text-dark m-0">ÁO PHÔNG</p>
+                                <p class="card-text text-dark">ÁO PHÔNG</p>
                             </a>
                             <a href="#">
-                                <p class="card-text text-dark m-0">QUẦN ÂU</p>
+                                <p class="card-text text-dark">QUẦN ÂU</p>
                             </a>
                             <a href="#">
-                                <p class="card-text text-dark m-0">GIÀY DA</p>
+                                <p class="card-text text-dark">GIÀY DA</p>
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-3 text-center">
-                <div class="card border-0">
-                    <div class="card-body">
-                        <h5 class="card-title"><b>LIKE VTCS TRÊN MẠNG XÃ HỘI</b></h5>
-                        <div class="row">
-                            <div class="col-6">
-                                <img class="rounded ml-auto d-block" src="<?php echo IMG_URL . 'facebook.png' ?>" alt="" width="36px" height="auto">
+            <div class="col-sm text-center">
+                <div class="receive">
+                    <div class="card border-0">
+                        <div class="card-body">
+                            <h5 class="card-title"><b>LIKE VTCS TRÊN MẠNG XÃ HỘI</b></h5>
+                            <div class="row">
+                                <div class="col-12">
+                                    <img class="text-center" src="<?php echo IMG_URL . 'images/facebook.png' ?>" alt="" width="36px" height="auto">
+                                    <img class="text-center" src="<?php echo IMG_URL . 'images/youtube.png' ?>" alt="" width="36px" height="auto">
+                                </div>
                             </div>
-                            <div class="col-6">
-                                <img class="rounded mr-auto d-block" src="<?php echo IMG_URL . 'youtube.png' ?>" alt="" width="36px" height="auto">
-                            </div>
+                            <br>
+                            <div class="border-bottom"></div>
+                            <br>
+                            <h5><b>ĐĂNG KÝ NHẬN THÔNG TIN MỚI <br> TỪ VTC STORE</b></h5>
+                            <form class="form-inline" style="display: inline;">
+                                <input type="text" class="form-control" placeholder="Nhập Email..." aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <button class="btn btn-outline-dark" type="button">Đăng Ký</button>
+                            </form>
                         </div>
                     </div>
-                    <div class="border-bottom"></div>
-                    <h5><b>ĐĂNG KÝ NHẬN THÔNG TIN MỚI TỪ VTC STORE</b></h5>
-                    <form class="form-inline my-2 my-lg-0">
-                        <input type="text" class="form-control" placeholder="Nhập Email..." aria-label="Recipient's username" aria-describedby="basic-addon2" style="width: 165px;">
-                        <div class="input-group-append">
-                            <button class="btn btn-outline-dark" type="button">Đăng Ký</button>
-                        </div>
-                    </form>
                 </div>
+
             </div>
             <div class="border-bottom"></div>
         </div>
     </footer>
-    <div class="text-dark bg-light">
+
+    <div id="bottom">
         <div style="text-align: center;">Copyrights © <?php echo date("Y"); ?> by VTC Store.</div>
     </div>
 </body>
