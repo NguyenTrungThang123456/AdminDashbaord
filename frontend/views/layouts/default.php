@@ -28,7 +28,7 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav ml-auto">
                     <a class="nav-item nav-link mr-3 active" href="#">Liên hệ<span class="sr-only">(current)</span></a>
-                    <a class="nav-item nav-link mr-3 active" href="#"><img class="mb-2" src="<?php echo IMG_URL . 'user.png' ?>" alt="" width="16px" height="auto"></a>
+                    <a class="nav-item nav-link mr-3 active" href=""><img class="mb-2" src="<?php echo IMG_URL . 'user.png' ?>" alt="" width="16px" height="auto"></a>
                     <a class="nav-item nav-link active" href="#"><img class="mb-1" src="<?php echo IMG_URL . 'cart.png' ?>" alt="" width="16px" height="auto"></a>
                 </div>
             </div>
@@ -77,6 +77,7 @@
     <article>
         <?php echo $content ?>
     </article>
+    
     <div class="border-top"></div>
     <footer class="container">
         <div class="row mx-auto">

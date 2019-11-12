@@ -1,7 +1,7 @@
 <?php
 	class View_Loader {
 
-		private $_contents = [];
+		protected $_contents = [];
 
 
 		function load($view, $data = []) {

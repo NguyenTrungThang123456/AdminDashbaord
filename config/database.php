@@ -6,5 +6,5 @@ return array(
     'db_username' => 'root',
     'db_password' => 'root',
     'db_name' => 'vtcs_dev',
-    'db_port' => 7888
+    'db_port' => 3307
 );

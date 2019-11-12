@@ -35,7 +35,7 @@
                     <div class="card">
                         <p><img class="card-img-top" src="<?php echo IMG_URL . $product['image'] ?>" alt="" srcset=""></p>
                         <div class="card-body">
-                            <h4 class="card-title"><a href="<?php echo base_url("product/show&id={$product['id']}") ?>"><?php echo $product['pro_name'] ?></a></h4>
+                            <h4 class="card-title"><a href="<?php echo base_url("product/show&id={$product['id']}") ?>"><?php echo $product['name'] ?></a></h4>
                             <p class="card-text"><?php echo $product['price'] ?> VND</p>
                         </div>
                     </div>
