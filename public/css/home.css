@@ -1,13 +1,57 @@
 * {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-@media (min-width: 992px) {
-    article {
-        background-color: #ffffff;
-        ;
-    }
-    .card-body p img {
-        margin-right: 3px;
-    }
+header, #login img, #cart img {
+    font-size: 24px;
+    width: 24px;
 }
+
+.btn, #bottom {
+    background-color: black;
+    color: white;
+}
+
+article {
+    background-color: #ffffff;
+}
+
+a {
+    color: dimgray;
+}
+
+a:hover {
+    color: black;
+}
+
+#email {
+    margin-left: 27px;
+}
+
+#password {
+    margin-left: 6px;
+}
+
+#email, #password {
+    /* border: auto; */
+    border-radius: 2px;
+
+}
+
+.receive .card {
+    background-color: whitesmoke !important;
+}
+
+.card-body p img {
+    margin-right: 3px;
+}
+
+@media (min-width: 1200px) {}
+
+@media (min-width: 992px) {}
+
+@media (min-width: 768px) {}
+
+@media (min-width: 576px) {}
+
+@media (min-width: 320px) {}

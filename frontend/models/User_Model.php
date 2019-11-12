@@ -1,17 +1,18 @@
 <?php
-	class User_Model extends Base_Model {
-		protected $table = 'user';
+class User_Model extends Base_Model
+{
+	protected $table = 'users';
 
-		// lấy user theo username
-		function get_by_username($username) {
-			$query = "select * from `{$this->table}` where username = :username";
-	        $sth = $this->db->prepare($query);
-	        $sth->execute([
-	        	':username' => $username
-	        ]);
-	        $data = $sth->fetch(PDO::FETCH_ASSOC);
-	        $sth->closeCursor();
-	        return $data;
-		}
-
+	// lấy user theo email
+	function get_by_email($email)
+	{
+		$query = "select * from `{$this->table}` where email = " . ':email' . "";
+		$sth = $this->db->prepare($query);
+		$sth->execute([
+			':email' => $email
+		]);
+		$data = $sth->fetch(PDO::FETCH_ASSOC);
+		$sth->closeCursor();
+		return $data;
 	}
+}
