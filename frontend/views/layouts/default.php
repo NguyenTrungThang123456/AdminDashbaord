@@ -30,13 +30,23 @@
                 <div class="navbar-nav ml-auto">
                     <a id="contact" class="nav-item nav-link mr-3 active" href="#">Liên hệ<span class="sr-only">(current)</span></a>
                     <form class="form-inline" style="display: inline;">
-                        <input type="text" class="form-control" placeholder="Nhập Email..." aria-label="Recipient's username" aria-describedby="basic-addon2">
+                        <input type="text" class="form-control" placeholder="Nhập sản phẩm..." aria-label="Recipient's username" aria-describedby="basic-addon2">
                         <button class="btn btn-outline-dark mr-1" type="button">Tìm kiếm</button>
                     </form>
                     <?php if (!$_SESSION['name']) : ?>
                         <a id="login" class="nav-item nav-link ml-2 active" href="<?php echo base_url('home/login') ?>"><img class="mb-1" src="<?php echo IMG_URL . 'images/user.png' ?>" alt="" height="auto"></a>
                     <?php else : ?>
-                        <a id="login" class="nav-item nav-link  active" href="<?php echo base_url('home/handle_logout') ?>"><?php echo $_SESSION['name'] ?><small>(đăng xuất)</small></a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <?php echo $_SESSION['name'] ?>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Thông tin cá nhân</a>
+                                <a class="dropdown-item" href="#">Lịch sử giao dịch</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="<?php echo base_url('home/handle_logout')?>">Đăng xuất</a>
+                            </div>
+                        </li>
                     <?php endif; ?>
                     <a id="cart" class="nav-item nav-link active" href="#"><img src="<?php echo IMG_URL . 'images/cart.png' ?>" alt="" height="auto"></a>
                 </div>

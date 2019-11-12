@@ -9,18 +9,18 @@
                             <input name="utf8" type="hidden" value="✓">
                             <h3><b>Đăng nhập</b></h3>
                             <div>
-                                <label for="Email" class="hidden-label">Email<input type="email" name="email" id="Email" class="form-control" placeholder="Email" require> <?php echo $errors['email']; ?></label>
+                                <label for="Email" class="hidden-label">Email:</label>
+                                <input type="email" name="email" id="email" class="" placeholder="Email" require>
+                                <?php echo $errors['email']; ?>
                             </div>
                             <div>
-                                <label for="Password" class="hidden-label">Mật khẩu<input type="password" value="" name="password" id="Password" class="form-control" placeholder="Mật khẩu" require>
+                                <label for="Password" class="hidden-label">Mật khẩu:<input type="password" value="" name="password" id="password" class="" placeholder="Mật khẩu" require>
                                     <?php echo $errors['password']; ?></label>
                             </div>
                             <p>
                                 <input type="submit" class="btn" value="Đăng nhập">
                             </p>
-                            <p><a class="btn btn-control" href="<?php echo base_url('home/index') ?>">Trở về</a></p>
-                            <p><a class="btn" href="/account/register" id="register_link">Đăng kí</a></p>
-                            <p><a class="btn" href="#recover" id="RecoverPassword">Quên mật khẩu?</a></p>
+                            <p class="text-dark"><a href="#recover" id="RecoverPassword">Quên mật khẩu?</a> <a href="/account/register" id="register_link">Đăng kí</a></p>
                         </form>
                     </div>
                 </div>

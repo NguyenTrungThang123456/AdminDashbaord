@@ -16,8 +16,26 @@ article {
     background-color: #ffffff;
 }
 
+a {
+    color: dimgray;
+}
+
 a:hover {
-    color: white;
+    color: black;
+}
+
+#email {
+    margin-left: 27px;
+}
+
+#password {
+    margin-left: 6px;
+}
+
+#email, #password {
+    /* border: auto; */
+    border-radius: 2px;
+
 }
 
 .receive .card {

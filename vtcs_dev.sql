@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:7888
--- Generation Time: Nov 11, 2019 at 08:17 AM
+-- Generation Time: Nov 12, 2019 at 07:45 AM
 -- Server version: 5.7.24-log
 -- PHP Version: 7.2.10
 
@@ -133,10 +133,12 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `categories_id`, `brand_id`, `name`, `price`, `image`, `quantity`, `created_at`, `updated_at`) VALUES
-(2, NULL, NULL, 'Name', 1000, NULL, NULL, '2019-11-09 12:46:25', '2019-11-09 12:46:25'),
-(3, NULL, NULL, 'Name 2', 100000, NULL, NULL, '2019-11-09 12:50:58', '2019-11-09 12:50:58'),
-(4, NULL, NULL, 'thang', 123, NULL, NULL, '2019-11-09 13:03:44', '2019-11-09 13:03:44'),
-(5, NULL, NULL, 'nam', 1111, NULL, NULL, '2019-11-10 15:58:25', '2019-11-10 15:58:25');
+(1, 1, 1, 'VEST', 1000, 'uploads/AO VEST DEN CO SAM (NEW).jpg', 1, '2019-11-09 12:46:25', '2019-11-09 12:46:25'),
+(2, 1, 1, 'VEST', 100000, 'uploads/AO VEST DEN CO SAM (NEW).jpg', 2, '2019-11-09 12:50:58', '2019-11-09 12:50:58'),
+(3, 1, 1, 'VEST', 123, 'uploads/AO VEST DEN CO SAM (NEW).jpg', 3, '2019-11-09 13:03:44', '2019-11-09 13:03:44'),
+(4, 1, 1, 'VEST', 1111, 'uploads/AO VEST DEN CO SAM (NEW).jpg', 4, '2019-11-10 15:58:25', '2019-11-10 15:58:25'),
+(5, 1, 1, 'VEST', 123123, 'uploads/AO VEST DEN CO SAM (NEW).jpg', 5, '2019-11-12 03:02:20', '2019-11-12 03:02:20'),
+(6, 1, 1, 'VEST', 123, 'uploads/AO VEST DEN CO SAM (NEW).jpg', 6, '2019-11-12 03:02:29', '2019-11-12 03:02:29');
 
 -- --------------------------------------------------------
 
@@ -192,14 +194,23 @@ CREATE TABLE `sizes` (
 CREATE TABLE `users` (
   `id` bigint(20) NOT NULL,
   `name` varchar(60) NOT NULL,
+  `date_of_birth` datetime NOT NULL,
   `address` varchar(255) NOT NULL,
   `phone_number` varchar(20) NOT NULL,
   `email` varchar(100) NOT NULL,
+  `password` varchar(50) NOT NULL,
   `role` int(11) NOT NULL,
   `created_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL,
-  `date_of_birth` datetime NOT NULL
+  `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `date_of_birth`, `address`, `phone_number`, `email`, `password`, `role`, `created_at`, `updated_at`) VALUES
+(1, 'admin', '2019-11-12 01:53:59', '18 Tam Trinh', '1111111111', 'admin@gmail.com', '321321', 1, '2019-11-12 01:53:44', '2019-11-12 01:53:48'),
+(2, 'nam', '2019-11-12 05:18:12', '18 Tam Trinh', '1111111111', 'nam@gmail.com', '123123', 2, '2019-11-12 05:18:08', '2019-11-12 05:18:10');
 
 --
 -- Indexes for dumped tables
@@ -318,7 +329,7 @@ ALTER TABLE `partners`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `product_size`
@@ -336,7 +347,7 @@ ALTER TABLE `shippers`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
