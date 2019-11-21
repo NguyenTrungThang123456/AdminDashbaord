@@ -35,13 +35,8 @@
                     <div class="card">
                         <p><img class="card-img-top" src="<?php echo IMG_URL . $product['image'] ?>" alt="" srcset=""></p>
                         <div class="card-body">
-<<<<<<< HEAD
                             <h4 class="card-title"><a href="<?php echo base_url("product/show&id={$product['id']}") ?>"><?php echo $product['name'] ?></a></h4>
                             <p class="card-text"><?php echo $product['price'] ?> VND</p>
-=======
-                            <h4 class="card-title text-center"><a href="<?php echo base_url("product/show&id={$product['id']}") ?>"><?php echo $product['name'] ?></a></h4>
-                            <p class="card-text text-center"><?php echo $product['price'] ?> VND</p>
->>>>>>> de4691728b170599bf0480123afaedefbf895883
                         </div>
                     </div>
                     <br>

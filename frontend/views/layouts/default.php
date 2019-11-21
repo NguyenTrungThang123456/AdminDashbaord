@@ -28,11 +28,8 @@
             </button>
             <div class="collapse navbar-collapse pr-5" id="navbarNavAltMarkup">
                 <div class="navbar-nav ml-auto">
-<<<<<<< HEAD
-                    <a class="nav-item nav-link mr-3 active" href="#">Liên hệ<span class="sr-only">(current)</span></a>
                     <a class="nav-item nav-link mr-3 active" href=""><img class="mb-2" src="<?php echo IMG_URL . 'user.png' ?>" alt="" width="16px" height="auto"></a>
                     <a class="nav-item nav-link active" href="#"><img class="mb-1" src="<?php echo IMG_URL . 'cart.png' ?>" alt="" width="16px" height="auto"></a>
-=======
                     <a id="contact" class="nav-item nav-link mr-3 active" href="#">Liên hệ<span class="sr-only">(current)</span></a>
                     <form class="form-inline" style="display: inline;">
                         <input type="text" class="form-control" placeholder="Nhập sản phẩm..." aria-label="Recipient's username" aria-describedby="basic-addon2">
@@ -54,7 +51,6 @@
                         </li>
                     <?php endif; ?>
                     <a id="cart" class="nav-item nav-link active" href="#"><img src="<?php echo IMG_URL . 'images/cart.png' ?>" alt="" height="auto"></a>
->>>>>>> de4691728b170599bf0480123afaedefbf895883
                 </div>
             </div>
         </header>
@@ -102,11 +98,7 @@
     <article>
         <?php echo $content ?>
     </article>
-<<<<<<< HEAD
-    
-=======
 
->>>>>>> de4691728b170599bf0480123afaedefbf895883
     <div class="border-top"></div>
 
     <footer class="container">

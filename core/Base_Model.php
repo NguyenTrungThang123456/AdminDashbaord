@@ -89,20 +89,23 @@ class Base_Model
 	}
 
 	// update a record by id
-	function update($id, $data = [])
+	function update($id ,$data = [])
 	{
+
 		if (!$id || count($data) == 0) {
 			return;
 		}
 		$data += get_update_time();
-
 		// auto gen values and fiels from a array
 		$result = gen_update_fields_form_array($data);
-		$query = "update `{$this->table}` set {$result->field_string}";
-
+		// session_start();
+		$query = "update {$this->table} set {$result->field_string} where `id` = $id";
 		try {
 			$this->db->beginTransaction();
 			$sth = $this->db->prepare($query);
+			// $sth->execute([
+			// 	'id' => $id
+			// ]);
 			$sth->execute($result->bind_values);
 			$this->db->commit();
 			return true;
@@ -122,13 +125,16 @@ class Base_Model
 		]);
 	}
 
-	function find_category()
+	function find_by_category($id)
 	{
-		$query = "select * from {$this->table} limit 4";
+		$query = "select name from `{$this->table}` where id = :id";
 		$sth = $this->db->prepare($query);
-		$sth->execute();
-		$data = $sth->fetchAll(PDO::FETCH_ASSOC);
+		$sth->execute([
+			':id' => $id
+		]);
+		$data = $sth->fetch(PDO::FETCH_ASSOC);
 		$sth->closeCursor();
 		return $data;
 	}
+
 }
